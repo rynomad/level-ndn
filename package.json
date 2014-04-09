@@ -1,0 +1,33 @@
+{
+  "name": "level-ndn",
+  "version": "0.0.0",
+  "description": "NDN repository for level-up",
+  "main": "node.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rynomad/level-ndn"
+  },
+  "keywords": [
+    "NDN",
+    "level"
+  ],
+  "author": "Ryan Bennett",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/rynomad/level-ndn/issues"
+  },
+  "devDependencies": {
+    "webdriver": "0.0.1",
+    "grunt": "~0.4.4",
+    "browserify": "~3.39.0",
+    "grunt-browserify": "~2.0.3",
+    "grunt-webdriver": "~0.4.0"
+  },
+  "dependencies": {
+    "workerify": "~0.2.3",
+    "level-js": "~2.1.2"
+  }
+}
