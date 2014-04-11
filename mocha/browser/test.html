@@ -4,13 +4,12 @@
 <script>  mocha.setup('bdd')
 </script>
 <script src="testLib.js"></script>
-<script src="browser-spec.js"></script>
 <link rel="stylesheet" href="mocha.css" />
 <div id="mocha"><p><a href=".">Index</a></p></div>
 <script>
   onload = function(){
-    //mocha.checkLeaks();
-    mocha.globals(['mochaResults','ndn','messageChanneltransport', 'repo']);
+    mocha.checkLeaks();
+    mocha.globals(['gotInterest','mochaResults','ndn','messageChanneltransport', 'repo']);
     var runner = mocha.run();
 
     var failedTests = [];

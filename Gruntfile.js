@@ -11,9 +11,9 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     browserify: {
-      test: {
+      dist: {
         files: {
-          "mocha/browser/testLib.js": ["mocha/browser/testIndex.js"]
+          "mocha/browser/testLib.js": ["mocha/browser/browser-spec.js"]
         },
  	options: {
 	  transform: ["workerify"] 
@@ -62,7 +62,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-browserify') 
   grunt.loadNpmTasks('grunt-saucelabs')
   grunt.loadNpmTasks('grunt-contrib-connect')
-  grunt.registerTask('test', ['connect', 'saucelabs-mocha'])
-  grunt.registerTask('build', ['browserify', 'connect', 'saucelabs-mocha'])
+  grunt.registerTask('tester', ['connect', 'saucelabs-mocha'])
+  grunt.registerTask('build', ['browserify:test', 'connect', 'saucelabs-mocha'])
 
 }
