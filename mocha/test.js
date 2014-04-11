@@ -1,4 +1,4 @@
-var cache = require('./index.js')
+var repo = require('../browser.js')
 var ndn = require('ndn-lib')
 
 var assert = require('assert')

@@ -14,6 +14,10 @@
     "NDN",
     "level"
   ],
+  "browser": "browser.js",
+  "browserify":{
+    "transform": "workerify"
+  },
   "author": "Ryan Bennett",
   "license": "GPL",
   "bugs": {
@@ -24,7 +28,10 @@
     "grunt": "~0.4.4",
     "browserify": "~3.39.0",
     "grunt-browserify": "~2.0.3",
-    "grunt-webdriver": "~0.4.0"
+    "grunt-webdriver": "~0.4.0",
+    "grunt-connect": "~0.2.0",
+    "grunt-saucelabs": "~5.1.1",
+    "grunt-contrib-connect": "~0.7.1"
   },
   "dependencies": {
     "workerify": "~0.2.3",

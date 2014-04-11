@@ -1,49 +1,43 @@
 module.exports = function(grunt){
+    var browsers = [{
+        browserName: "chrome",
+        version: "33",
+        platform: "XP"
+    }, {
+        browserName: "chrome",
+        version: "33",
+        platform: "Linux"
+    }];
+
   grunt.initConfig({
     browserify: {
-      dist: {
+      test: {
         files: {
-          "level-ndn.js": ["browser.js"]
+          "mocha/browser/testLib.js": ["mocha/browser/testIndex.js"]
         },
  	options: {
 	  transform: ["workerify"] 
 	}
       }
     },
-    webdriver: {
-      options: {
-        host: 'ondemand.saucelabs.com',
-        port: 80,
-        user: "rynomadCSU",
-        key: "c954c8b8-41ce-45b1-bba2-3b8806d5e2cf",
-        desiredCapabilities: {
-            browserName: 'chrome',
-            version: '27',
-            platform: 'XP',
-            'tunnel-identifier': 'my-tunnel'
-        }
-      },
-      chrome: {
-          tests: ['mocha/test.js'],
-          options: {
-            // overwrite default settings
-              desiredCapabilities: {
-                  browserName: 'chrome'
-              }
-          }
-      },  firefox: {
-          tests: ['mocha/test.js'],
-          options: {
-            // overwrite default settings
-              desiredCapabilities: {
-                  browserName: 'firefox'
-              }
-          }
+    connect: {
+      server: {
       }
-
-
-
     },
+    'saucelabs-mocha': {
+            all: {
+                options: {
+                    urls: ["http://127.0.0.1:8000/mocha/browser/test.html"],
+		    username: "rynomadCSU",
+		    key: "c954c8b8-41ce-45b1-bba2-3b8806d5e2cf",
+                    tunnelTimeout: 5,
+                    concurrency: 3,
+                    browsers: browsers,
+                    testname: "mocha tests",
+                    tags: ["master"]
+                }
+            }
+        },
     mochaSelenium: {
       options: {
         // Mocha options
@@ -66,7 +60,9 @@ module.exports = function(grunt){
   })
 
   grunt.loadNpmTasks('grunt-browserify') 
-  grunt.loadNpmTasks('grunt-webdriver')
-  grunt.registerTask('build', ['browserify', 'webdriver'])
+  grunt.loadNpmTasks('grunt-saucelabs')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.registerTask('test', ['connect', 'saucelabs-mocha'])
+  grunt.registerTask('build', ['browserify', 'connect', 'saucelabs-mocha'])
 
 }
