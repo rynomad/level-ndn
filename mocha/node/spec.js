@@ -22,7 +22,8 @@ var server = net.createServer(function(c) {
   var s = {}
   s.trans = new tcpServ(c)
   global.face = new ndn.Face({host: 1, port: 1, getTransport: function(){return s.trans}})
-  face.transport.connect(face, function(){})
+  var cb = function(){console.log('onOpenCallback')}
+  face.transport.connect(face, cb)
 
   var closure = new ndn.Face.CallbackClosure(null, null, onInterest, 'test', face.transport)
   ndn.Face.registeredPrefixTable.push(new RegisteredPrefix('test', closure))
