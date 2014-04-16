@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "workerify": "~0.2.3",
-    "level-js": "~2.1.2"
+    "level-js": "~2.1.2",
+    "levelup": "*",
+    "leveldown": "*"
   }
 }

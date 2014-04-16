@@ -4,9 +4,10 @@ var repo = {}
   , streamTransport = ("ndn-streamTransport")
 
 repo.ndnr = ndnr
-repo.levelDown(false)
+repo.ndnr.levelDown(false)
 
-repo.tangle = function (streamTransport, writeableStream) {
-  repo.ndnr.initFace(streamTransport, writeableStream)
+repo.tangle = function (stringprefix, a1, a2, ack) {
+  repo.ndnr.initFace(stringprefix, null,null, ack)
 }
 
+module.exports = repo
