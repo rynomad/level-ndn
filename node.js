@@ -1,7 +1,7 @@
 var repo = {}
   , ndnr = require("./lib/ndn-repo.js")
   , down = false
-  , streamTransport = ("ndn-streamTransport")
+  , streamTransport = ("ndn-tcpServerTransport")
 
 repo.ndnr = ndnr
 repo.ndnr.levelDown(false)
