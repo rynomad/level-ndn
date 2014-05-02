@@ -28,7 +28,7 @@ describe('ping', function(){
     var interest = new ndn.Interest(command)
     interest.setInterestLifetimeMilliseconds(1000)
     function onData(interest, data){
-      if (data.content.toString() == "content storage request recieved")
+      if (data.content.toString() == "content stored")
       {done()}
     }
     function onTimeout(interest, something){
