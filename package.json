@@ -15,7 +15,7 @@
     "level"
   ],
   "browser": "browser.js",
-  "browserify":{
+  "browserify": {
     "transform": "workerify"
   },
   "author": "Ryan Bennett",
@@ -41,6 +41,7 @@
     "ndn-lib": "*",
     "ndn-utils": "*",
     "ndn-tcpServerTransport": "*",
-    "ndn-messageChannelTransport": "*"
+    "ndn-messageChannelTransport": "*",
+    "level-sublevel": "^5.2.0"
   }
 }
