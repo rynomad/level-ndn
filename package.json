@@ -40,7 +40,6 @@
     "leveldown": "*",
     "ndn-lib": "*",
     "ndn-utils": "*",
-    "ndn-tcpServerTransport": "*",
     "ndn-messageChannelTransport": "*",
     "level-sublevel": "^5.2.0"
   }
