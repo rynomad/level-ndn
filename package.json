@@ -38,7 +38,7 @@
     "level-js": "~2.1.2",
     "levelup": "*",
     "leveldown": "*",
-    "ndn-lib": "*",
+    "ndn-lib":  "git+https://github.com/rynomad/ndn-js.git",
     "ndn-utils": "*",
     "ndn-messageChannelTransport": "*",
     "level-sublevel": "^5.2.0"
