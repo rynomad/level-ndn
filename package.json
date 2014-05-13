@@ -1,6 +1,6 @@
 {
   "name": "level-ndn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NDN repository for level-up",
   "main": "node.js",
   "scripts": {
