@@ -2,8 +2,6 @@ var ndn = require('ndn-lib')
 
 var fa = new ndn.Face({host:1, port:1})
 var RegisteredPrefix = function(prefix, closure) {this.prefix = new ndn.Name(prefix); this.closure = closure}
-var net = require('net')
-var tcpServ = require('ndn-tcpServerTransport').transport
 
 function onInterest (prefix,interest,transport){
   global.gotInterest = true
@@ -17,9 +15,9 @@ function onInterest (prefix,interest,transport){
   console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 }
 var face = new ndn.Face({host:'localhost', port: 9999})
-  var closure = new ndn.Face.CallbackClosure(null, null, onInterest, 'test', face.transport)
-  ndn.Face.registeredPrefixTable.push(new RegisteredPrefix('test', closure))
-  console.log(face)
+var closure = new ndn.Face.CallbackClosure(null, null, onInterest, 'test', face.transport)
+ndn.Face.registeredPrefixTable.push(new RegisteredPrefix('test', closure))
+console.log(face)
 
 
 describe('ping', function(){
@@ -27,6 +25,7 @@ describe('ping', function(){
     var command = new ndn.Name("test").append(new ndn.Name.Component([0xc1, 0x2e, 0x52, 0x2e, 0x73, 0x77]))
     var interest = new ndn.Interest(command)
     interest.setInterestLifetimeMilliseconds(1000)
+    console.log(interest.name.toUri())
     function onData(interest, data){
       if (data.content.toString() == "content stored")
       {done()}
@@ -36,7 +35,6 @@ describe('ping', function(){
     }
     console.log(interest, face)
     face.expressInterest(interest, onData, onTimeout)
-    console.log(ndn.Face.registeredPrefixTable)
 
   })
   it('should send an Interest to fetch the data', function(done){
