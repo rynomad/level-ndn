@@ -5,13 +5,9 @@ var repo = {}
 repo.ndnr = ndnr
 repo.ndnr.levelDown(false)
 
-repo.tangle = function (stringprefix, a1, a2, ack) {
-  repo.ndnr.initFace(stringprefix, null,null, ack)
+repo.tangle = function (stringprefix, a1, a2, ack, firstcb) {
+  repo.ndnr.initFace(stringprefix, null,null, ack, firstcb)
 }
 
-if (process.argv.length > 2) {
-  console.log('argv[2] ', process.argv[2] )
-  repo.tangle(process.argv[2], null, null, function(){ console.log("repo tangled")})
-}
-
+repo.init = repo.ndnr.init
 module.exports = repo
