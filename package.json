@@ -1,6 +1,6 @@
 {
   "name": "level-ndn",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "NDN repository for level-up",
   "main": "node.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "browserify": {
     "transform": "workerify"
   },
-  "author": "Ryan Bennett",
-  "license": "GPL",
+  "author": "Ryan Bennett, Colorado State University",
+  "license": "LGPL",
   "bugs": {
     "url": "https://github.com/rynomad/level-ndn/issues"
   },

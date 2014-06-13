@@ -29,7 +29,7 @@ forwarder(function(self){
     //cb = a callback executed every time the repo is initialized
     //firstcb = a callback executed the first time the repo is initialized on a machine, useful for importing/migrating data.
   }
-  repo.tangle(stringPrefix, null, null, callback)
+  repo.tangle(namespace, null, null, callback)
   //the 'null' arguments here are for future versions where we allow for various transports to connect with the nfd
 
 })
